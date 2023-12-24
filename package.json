@@ -1,0 +1,27 @@
+{
+  "name": "SkyBot",
+  "version": "1.0.0",
+  "description": "Simple Telegram Bot ",
+  "main": "system/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ArifzynXD",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "chalk": "^3.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "chokidar": "^3.5.3",
+    "delay": "^6.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "file-type": "^16.3.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "syntax-error": "^1.4.0",
+    "telegraf": "^4.15.0",
+    "yt-search": "^2.10.4",
+    "ytdl-core": "^4.11.5"
+  }
+}

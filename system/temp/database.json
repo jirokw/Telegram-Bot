@@ -1,0 +1,163 @@
+{
+   "users": {
+      "207882532": {
+         "limit": 25,
+         "lastChat": 1702132115326,
+         "premium": false,
+         "VIP": false,
+         "name": "plesdisgila",
+         "banned": false
+      },
+      "956801375": {
+         "limit": 25,
+         "lastChat": 1703379714770,
+         "premium": false,
+         "name": "wudysoft",
+         "banned": false
+      },
+      "1362409188": {
+         "limit": 25,
+         "lastChat": 1702648659892,
+         "premium": false,
+         "VIP": false,
+         "name": "arul09_09",
+         "banned": false,
+         "characterAi": {
+            "name": "",
+            "id": "",
+            "chatId": "",
+            "chat": false
+         }
+      },
+      "6176867516": {
+         "limit": 25,
+         "lastChat": 1701398021541,
+         "premium": true,
+         "VIP": true,
+         "name": "arifzxa19",
+         "banned": false,
+         "character_ai": {},
+         "characterAi": {
+            "id": "Sj1nGHZepLRf96j_ilFOstKPDrF27UtC0ke8IZH88NU",
+            "name": "Sj1nGHZepLRf96j",
+            "chatId": "ULugQAcDh7RxQp844hnO2fCIygbooUJAs2jAkQAeRqM",
+            "chat": false
+         },
+         "chatId": ""
+      },
+      "5409473699": {
+         "limit": 25,
+         "lastChat": 1702132093706,
+         "premium": false,
+         "VIP": false,
+         "name": "juunn4",
+         "banned": false
+      },
+      "5330080649": {
+         "limit": 25,
+         "lastChat": 1702187698948,
+         "premium": false,
+         "VIP": false,
+         "name": "bocilbiasa",
+         "banned": false
+      },
+      "6506820441": {
+         "limit": 25,
+         "lastChat": 1702461858187,
+         "premium": false,
+         "VIP": false,
+         "banned": false
+      },
+      "5819951956": {
+         "limit": 25,
+         "lastChat": 1702652190667,
+         "premium": false,
+         "VIP": false,
+         "name": "sanzydev",
+         "banned": false,
+         "characterAi": {
+            "name": "",
+            "id": "",
+            "chatId": "",
+            "chat": false
+         }
+      },
+      "5597137986": {
+         "limit": 25,
+         "lastChat": 1702725168942,
+         "premium": false,
+         "VIP": false,
+         "name": "YanzBotzX",
+         "banned": false,
+         "characterAi": {
+            "name": "",
+            "id": "",
+            "chatId": "",
+            "chat": false
+         }
+      },
+      "5675049989": {
+         "limit": 25,
+         "lastChat": 1703353476626,
+         "premium": false,
+         "VIP": false,
+         "name": "miftahganzz",
+         "banned": false,
+         "characterAi": {
+            "name": "",
+            "id": "",
+            "chatId": "",
+            "chat": false
+         }
+      },
+      "5794546040": {
+         "limit": 25,
+         "lastChat": 1703357657900,
+         "premium": false,
+         "VIP": false,
+         "name": "jeresukajj",
+         "banned": false,
+         "characterAi": {
+            "name": "",
+            "id": "",
+            "chatId": "",
+            "chat": false
+         }
+      },
+      "6479486724": {
+         "limit": 25,
+         "lastChat": 1703388989400,
+         "premium": false,
+         "banned": false
+      }
+   },
+   "chats": {
+      "-4040890388": {
+         "lastChat": 1702132115326,
+         "mute": false,
+         "welcome": true,
+         "leave": true,
+         "banned": false,
+         "chatAi": false
+      },
+      "-4086950660": {
+         "lastChat": 1702648637896,
+         "mute": false,
+         "welcome": true,
+         "leave": true,
+         "banned": false,
+         "chatAi": false
+      },
+      "-1002052384625": {
+         "lastChat": 1702649583759,
+         "mute": false,
+         "welcome": true,
+         "leave": true,
+         "banned": false,
+         "chatAi": false
+      }
+   },
+   "settings": {
+      "model": "-"
+   }
+}
