@@ -15,7 +15,14 @@ cd Telegram-Bot
 2. install module
 
 ```bash
-npm install or yarn install
+npm install 
+```
+
+#### If npm install failed, try using yarn instead of npm
+
+```bash
+npm install -g yarn
+yarn install 
 ```
 
 3. Start Bot
