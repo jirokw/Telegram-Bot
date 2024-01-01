@@ -129,6 +129,20 @@
          "lastChat": 1703388989400,
          "premium": false,
          "banned": false
+      },
+      "5106594674": {
+         "limit": 25,
+         "lastChat": 1704106362016,
+         "premium": false,
+         "name": "clicknetcafe2",
+         "banned": false
+      },
+      "6587602438": {
+         "limit": 25,
+         "lastChat": 1704106581272,
+         "premium": false,
+         "name": "rulskeyy",
+         "banned": false
       }
    },
    "chats": {
@@ -150,6 +164,14 @@
       },
       "-1002052384625": {
          "lastChat": 1702649583759,
+         "mute": false,
+         "welcome": true,
+         "leave": true,
+         "banned": false,
+         "chatAi": false
+      },
+      "-1001818513104": {
+         "lastChat": 1704106362016,
          "mute": false,
          "welcome": true,
          "leave": true,

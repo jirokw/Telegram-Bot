@@ -5,7 +5,7 @@ module.exports = {
   run: async (bot, { msg: ctx }) => {
     const chatId = ctx.chat.id;
     const chatInfo = await ctx.telegram.getChat(chatId);
-  
+
     const admins = await ctx.telegram.getChatAdministrators(chatId);
     const memberCount = await ctx.telegram.getChatMembersCount(chatId);
     const chatDescription = chatInfo.description || "Tidak ada deskripsi grup.";
@@ -32,20 +32,39 @@ module.exports = {
     📛 Group name: ${chatInfo.title}
     🗳 Group type: ${chatInfo.type === "private" ? "Private" : "Public"}
     🖌 Created: ${createdDate}
-    ⚠ Group level: ${chatStats.status === "administrator" ? chatStats.can_restrict_members ? "Superadmin" : "Admin" : "Member"}
-    💬 Viewable messages: ${chatStats.until_date ? chatStats.until_date : "Unlimited"}
-    💬 Messages sent: ${chatStats.user ? chatStats.user.restrictions ? chatStats.user.restrictions.view_messages : 0 : 0}
+    ⚠ Group level: ${
+      chatStats.status === "administrator"
+        ? chatStats.can_restrict_members
+          ? "Superadmin"
+          : "Admin"
+        : "Member"
+    }
+    💬 Viewable messages: ${
+      chatStats.until_date ? chatStats.until_date : "Unlimited"
+    }
+    💬 Messages sent: ${
+      chatStats.user
+        ? chatStats.user.restrictions
+          ? chatStats.user.restrictions.view_messages
+          : 0
+        : 0
+    }
     👥 Members: ${memberCount}
     👮 Administrators: ${admins.length}
     🤖 Bots: ${admins.filter((admin) => admin.user.is_bot).length}
     👀 Currently online: ${onlineMembers}
-    🔕 Restricted users: ${chatStats.user ? chatStats.user.restrictions ? chatStats.user.restrictions.is_member : 0 : 0} 🦸‍♂ Supergroup: ${chatInfo.supergroup ? "Yes" : "No"} 🗒 Description: ${chatDescription}
+    🔕 Restricted users: ${
+      chatStats.user
+        ? chatStats.user.restrictions
+          ? chatStats.user.restrictions.is_member
+          : 0
+        : 0
+    } 🦸‍♂ Supergroup: ${
+      chatInfo.supergroup ? "Yes" : "No"
+    } 🗒 Description: ${chatDescription}
     ${isAdmin ? "👑 I am an administrator in this group." : ""}
   `;
 
-    ctx.replyWithPhoto(
-      { url: chatPhotoUrl },
-      { caption: replyMessage },
-    );
+    ctx.replyWithPhoto({ url: chatPhotoUrl }, { caption: replyMessage });
   },
 };

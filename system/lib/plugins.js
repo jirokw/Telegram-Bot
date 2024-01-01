@@ -36,14 +36,14 @@ class Collection extends Map {
   defaultSort(firstKey, secondKey) {
     return Number(firstKey > secondKey) || Number(firstKey === secondKey) - 1;
   }
-};
+}
 
 const watchPlugins = (folderPath) => {
   fs.watch(folderPath, { recursive: true }, (eventType, filename) => {
-    if (eventType === 'change') {
+    if (eventType === "change") {
       console.log(`Plugin changed: ${filename}`);
       reloadPlugin(folderPath, filename);
-    } else if (eventType === 'rename') {
+    } else if (eventType === "rename") {
       console.log(`Plugin deleted or added: ${filename}`);
       deletePlugins(folderPath, filename);
     }
@@ -51,19 +51,19 @@ const watchPlugins = (folderPath) => {
 };
 
 const deletePlugins = (folderPath, filename) => {
-	const filePath = path.join(folderPath, filename);
-	if (fs.existsSync(filePath)) {
+  const filePath = path.join(folderPath, filename);
+  if (fs.existsSync(filePath)) {
     reloadPlugin(filePath, filename);
   } else {
     console.log(`Plugin deleted: ${filePath}`);
     global.plugins.delete(filePath);
   }
-}
+};
 
 const reloadPlugin = (folderPath, filename) => {
   const filePath = path.join(folderPath, filename);
 
-  const pluginFilter = filename => /\.js$/.test(filename);
+  const pluginFilter = (filename) => /\.js$/.test(filename);
   if (pluginFilter(filename)) {
     if (fs.existsSync(filePath)) {
       if (filePath in require.cache) {
@@ -88,8 +88,8 @@ const reloadPlugin = (folderPath, filename) => {
 };
 
 module.exports = {
-	Collection,
-	watchPlugins,
-	reloadPlugin,
-	deletePlugins
-}
+  Collection,
+  watchPlugins,
+  reloadPlugin,
+  deletePlugins,
+};

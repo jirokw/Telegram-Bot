@@ -1,14 +1,13 @@
-const axios = require("axios")
-const fetch = require("node-fetch")
-const fs = require("fs")
-const mimes = require("mime-types") 
-const { fromBuffer } = require("file-type")
+const axios = require("axios");
+const fetch = require("node-fetch");
+const fs = require("fs");
+const mimes = require("mime-types");
+const { fromBuffer } = require("file-type");
 
 module.exports = class Function {
-  
   async getFileId(ctx) {
     let mediaMessage = ctx.message;
-  
+
     if (ctx.message.reply_to_message && ctx.message.reply_to_message.photo) {
       mediaMessage = ctx.message.reply_to_message;
     }
@@ -26,7 +25,7 @@ module.exports = class Function {
       return null;
     }
   }
-  
+
   async getFile(PATH, save) {
     try {
       let filename = null;
@@ -80,7 +79,7 @@ module.exports = class Function {
       throw e;
     }
   }
-  
+
   formatSize(bytes, si = true, dp = 2) {
     const thresh = si ? 1000 : 1024;
 
@@ -88,7 +87,7 @@ module.exports = class Function {
       return `${bytes} B`;
     }
   }
-  
+
   fetchBuffer(string, options = {}) {
     return new Promise(async (resolve, reject) => {
       try {
@@ -184,5 +183,4 @@ module.exports = class Function {
       }
     });
   }
-  
-}
+};

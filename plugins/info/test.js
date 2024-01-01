@@ -8,7 +8,7 @@ module.exports = {
   run: async (bot, { msg }) => {
     const keyboard = {
       reply_markup: {
-        inline_keyboard: [ 
+        inline_keyboard: [
           [
             { text: "runtime", callback_data: "runtime" },
             { text: "info", callback_data: "info" },

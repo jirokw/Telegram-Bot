@@ -18,7 +18,7 @@ module.exports.idb = async (msg) => {
       banned: false,
     };
   }
-  
+
   if (msg.isGroup) {
     let chat = global.db.chats[msg.message.chat.id];
     if (typeof chat !== "object") global.db.chats[msg.message.chat.id] = {};

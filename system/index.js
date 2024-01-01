@@ -12,20 +12,37 @@ const chokidar = require("chokidar");
 const config = require("./config");
 const database = new (require("./lib/localdb"))();
 const { Collection, watchPlugins } = require("./lib/plugins.js");
-	
+
 const bot = new Telegraf(config.token);
 
 global.axios = require("axios");
 global.cheerio = require("cheerio");
 global.fetch = require("node-fetch");
-global.config = config
-global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in config.APIs ? config.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: config.APIKeys[name in config.APIs ? config.APIs[name] : name] } : {}) })) : '')
-global.Func = new (require("./lib/function"))()
+global.config = config;
+global.API = (name, path = "/", query = {}, apikeyqueryname) =>
+  (name in config.APIs ? config.APIs[name] : name) +
+  path +
+  (query || apikeyqueryname
+    ? "?" +
+      new URLSearchParams(
+        Object.entries({
+          ...query,
+          ...(apikeyqueryname
+            ? {
+                [apikeyqueryname]:
+                  config.APIKeys[
+                    name in config.APIs ? config.APIs[name] : name
+                  ],
+              }
+            : {}),
+        }),
+      )
+    : "");
+global.Func = new (require("./lib/function"))();
 global.plugins = new Collection();
 
-
-const pluginsFolder = "plugins"; 
-const dir = fs.readdirSync(pluginsFolder).filter((a) => a !== "_function")
+const pluginsFolder = "plugins";
+const dir = fs.readdirSync(pluginsFolder).filter((a) => a !== "_function");
 for (const pluginFolder of dir) {
   const pluginPath = `${pluginsFolder}/${pluginFolder}`;
 
@@ -56,13 +73,13 @@ setInterval(async () => {
   );
 }, 3 * 1000);
 
-bot.command('start', (ctx) => {
+bot.command("start", (ctx) => {
   const keyboard = Markup.inlineKeyboard([
-    Markup.button.url('Visit our website', 'http://www.example.com'),
-    Markup.button.callback('Say Hello', 'HELLO'),
+    Markup.button.url("Visit our website", "http://www.example.com"),
+    Markup.button.callback("Say Hello", "HELLO"),
   ]);
 
-  ctx.reply('Welcome!', { reply_markup: keyboard });
+  ctx.reply("Welcome!", { reply_markup: keyboard });
 });
 
 bot.on("message", (msg) => {
@@ -87,8 +104,8 @@ bot.on("message", (msg) => {
   const isOwner = config.owner.includes(msg.message.from.username);
   const isGroup = msg.message.chat.type.includes("group");
 
-  msg.args = args 
-  msg.text = text
+  msg.args = args;
+  msg.text = text;
   msg.sender = msg.message.from.id;
   msg.isOwner = isOwner;
   msg.isGroup = isGroup;
@@ -106,16 +123,16 @@ bot.on("message", (msg) => {
     return bot.telegram.editMessageText(id, mess.message_id, null, teks);
   };
   msg.download = async (quoted) => {
-  	const id = await Func.getFileId(quoted)
-  	const { href } = await bot.telegram.getFileLink(id)
-  	return href
-  }
+    const id = await Func.getFileId(quoted);
+    const { href } = await bot.telegram.getFileLink(id);
+    return href;
+  };
 
   if (body) {
     require("./lib/database").idb(msg);
   }
-  
-  if (plugin) {	
+
+  if (plugin) {
     if (!prefix && plugin.noPrefix) {
       if (plugin.owner && !isOwner) {
         return msg.sendReply(config.msg.owner);
@@ -124,7 +141,12 @@ bot.on("message", (msg) => {
         return msg.sendReply(config.msg.group);
       }
       if (plugin.use && !text) {
-      	return msg.sendReply(plugin.use.replace(/%prefix/gi, prefix).replace(/%command/gi, cmd).replace(/%text/gi, text));
+        return msg.sendReply(
+          plugin.use
+            .replace(/%prefix/gi, prefix)
+            .replace(/%command/gi, cmd)
+            .replace(/%text/gi, text),
+        );
       }
 
       plugin.run(bot, {
@@ -142,7 +164,12 @@ bot.on("message", (msg) => {
         return msg.reply(config.msg.group);
       }
       if (plugin.use && !text) {
-      	return msg.sendReply(plugin.use.replace(/%prefix/gi, prefix).replace(/%command/gi, cmd).replace(/%text/gi, text));
+        return msg.sendReply(
+          plugin.use
+            .replace(/%prefix/gi, prefix)
+            .replace(/%command/gi, cmd)
+            .replace(/%text/gi, text),
+        );
       }
 
       plugin.run(bot, {
@@ -154,23 +181,23 @@ bot.on("message", (msg) => {
       console.log("command :", cmd);
     }
   }
-  
+
   if (!plugin) {
-  	const dir = "plugins/_function";
-  	const files = fs.readdirSync(dir).filter((file) => file.endsWith(".js"));
-  	if (files.length === 0) return;
-  	for (const file of files) {
-  		const load = require(`../${dir}/${file}`)
-  		load(bot, {
-  			msg,
-  			args,
-  			text,
-  			command: cmd,
-         });
-  	}
+    const dir = "plugins/_function";
+    const files = fs.readdirSync(dir).filter((file) => file.endsWith(".js"));
+    if (files.length === 0) return;
+    for (const file of files) {
+      const load = require(`../${dir}/${file}`);
+      load(bot, {
+        msg,
+        args,
+        text,
+        command: cmd,
+      });
+    }
   }
 });
- 
+
 bot.launch();
 
 watchPlugins(pluginsFolder);
