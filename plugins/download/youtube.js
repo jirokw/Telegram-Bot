@@ -7,7 +7,7 @@ module.exports = {
   tags: ["download"],
   run: async (bot, { msg, args }) => {
     if (!args[0]) {
-      ctx.sendReply("Masukan Query!\n\nContoh:\n.play <judul lagu>");
+      msg.sendReply("Masukan Query!\n\nContoh:\n.play <judul lagu>");
       return;
     }
 
@@ -109,7 +109,7 @@ module.exports = {
           }
         } catch (error) {
           console.error(error);
-          ctx.sendReply(config.msg.error);
+          msg.sendReply(config.msg.error);
         }
       });
     } catch (error) {
