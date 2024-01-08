@@ -176,6 +176,7 @@ bot.on("message", (msg) => {
         msg,
         args,
         text,
+        prefix,
         command: cmd,
       });
       console.log("command :", cmd);
@@ -192,6 +193,7 @@ bot.on("message", (msg) => {
         msg,
         args,
         text,
+        prefix,
         command: cmd,
       });
     }

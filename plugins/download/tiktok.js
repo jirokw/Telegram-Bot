@@ -19,21 +19,26 @@ module.exports = {
             [{ text: "Download Audio", callback_data: "tiktok_audio" }],
           ],
         },
-      }; 
+      };
 
-      const response = await axios.get(noWatermark, { responseType: 'arraybuffer' });
-      const bufferVideo = Buffer.from(response.data);
-      
-      await msg.replyWithVideo({ source: bufferVideo }, {
-        caption: caption,
-        parse_mode: "Markdown",
-        reply_to_message_id: msg.message.message_id,
-        ...replyMarkup,
+      const response = await axios.get(noWatermark, {
+        responseType: "arraybuffer",
       });
+      const bufferVideo = Buffer.from(response.data);
 
-      bot.on("callback_query", async (ctx) => {	
+      await msg.replyWithVideo(
+        { source: bufferVideo },
+        {
+          caption: caption,
+          parse_mode: "Markdown",
+          reply_to_message_id: msg.message.message_id,
+          ...replyMarkup,
+        },
+      );
+
+      bot.on("callback_query", async (ctx) => {
         const action = ctx.callbackQuery.data;
-        
+
         switch (action) {
           case "tiktok_audio":
             await ctx.editMessageCaption(caption);

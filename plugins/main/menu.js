@@ -3,13 +3,13 @@ const tags = {
   download: "DOWNLOAD FEATURE",
   owner: "OWNER FEATURE",
   info: "INFO FEATURE",
-  main: "MAIN FEATURE",
+  game: "GAME FEATURE",
 };
 
 module.exports = {
   command: ["menu"],
   help: ["menu"],
-  tags: ["main", "info"],
+  tags: ["info"],
   run: async (bot, { msg }) => {
     const Start = new Date();
 
@@ -52,14 +52,21 @@ module.exports = {
       menuText += "╰─\n\n";
     });
 
-    await msg.sendReply(menuText, {
-      parse_mode: "Markdown",
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: "Source Feature", url: "https://api.arifzyn.biz.id" }],
-        ],
+    menuText += `Powered By © <a href="https://api.arifzyn.biz.id">Arifzyn API</a>`;
+
+    await msg.replyWithPhoto(
+      "https://hostfile.my.id/file/1f85dd62dfbca17b19b1d.jpg",
+      {
+        caption: menuText,
+        parse_mode: "HTML",
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: "Source Feature", url: "https://api.arifzyn.biz.id" }],
+          ],
+        },
+        reply_to_message_id: msg.message.message_id,
       },
-    });
+    );
   },
 };
 

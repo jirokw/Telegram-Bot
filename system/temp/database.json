@@ -29,8 +29,15 @@
             "chat": false
          }
       },
-      "6176867516": {
+      "1842360247": {
          "limit": 25,
+         "lastChat": 1704185804477,
+         "premium": false,
+         "name": "bihunpremium",
+         "banned": false
+      },
+      "6176867516": {
+         "limit": 3,
          "lastChat": 1701398021541,
          "premium": true,
          "VIP": true,
@@ -138,10 +145,37 @@
          "banned": false
       },
       "6587602438": {
-         "limit": 25,
+         "limit": -22556373,
          "lastChat": 1704106581272,
          "premium": false,
          "name": "rulskeyy",
+         "banned": false
+      },
+      "5570573977": {
+         "limit": 3,
+         "lastChat": 1704194747821,
+         "premium": false,
+         "name": "keishableyra",
+         "banned": false
+      },
+      "6883634212": {
+         "limit": 25,
+         "lastChat": 1704199084858,
+         "premium": false,
+         "banned": false
+      },
+      "6438326475": {
+         "limit": 25,
+         "lastChat": 1704285489335,
+         "premium": false,
+         "name": "kmsnmsjsjs",
+         "banned": false
+      },
+      "5653274695": {
+         "limit": 25,
+         "lastChat": 1704334562058,
+         "premium": false,
+         "name": "Zackychen_15",
          "banned": false
       }
    },

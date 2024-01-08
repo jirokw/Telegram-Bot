@@ -2,12 +2,9 @@ require("dotenv").config();
 const { fileURLToPath } = require("url");
 const fs = require("fs");
 
-const token =
-  process.env.TOKEN || "6488020821:AAEtbVJvAxHPJPDInjkWvlUUdXSd8766fd0";
-
 module.exports = {
   owner: "arifzxa19",
-  token,
+  token: process.env.TOKEN || "",
 
   APIs: {
     arifzyn: "https://api.arifzyn.biz.id",
