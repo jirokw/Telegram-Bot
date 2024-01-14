@@ -3,7 +3,7 @@ const { fileURLToPath } = require("url");
 const fs = require("fs");
 
 module.exports = {
-  owner: "arifzxa19",
+  owner: "JIROSTOREOFC",
   token: process.env.TOKEN || "",
 
   APIs: {
