@@ -4,14 +4,14 @@ const fs = require("fs");
 
 module.exports = {
   owner: "JIROSTOREOFC",
-  token: process.env.TOKEN || "",
+  token: process.env.TOKEN || "6676039314:AAHtRy9nKdtc9GGTZly7M8yDttTQmOB0A8s",
 
   APIs: {
     arifzyn: "https://api.arifzyn.biz.id",
   },
 
   APIKeys: {
-    "https://api.arifzyn.biz.id": process.env.APIKEY || "",
+    "https://api.arifzyn.biz.id": process.env.APIKEY || "AR-zH0qfwCl3cDc",
   },
 
   msg: {
