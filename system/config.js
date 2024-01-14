@@ -4,7 +4,7 @@ const fs = require("fs");
 
 module.exports = {
   owner: "JIROSTOREOFC",
-  token: process.env.TOKEN || "6676039314:AAHtRy9nKdtc9GGTZly7M8yDttTQmOB0A8s",
+  token: process.env.TOKEN || "6630871926:AAEk_GZgyio8IXP7iYL5uXkSZEBuK-jJFFo",
 
   APIs: {
     arifzyn: "https://api.arifzyn.biz.id",
